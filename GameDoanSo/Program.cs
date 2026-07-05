@@ -19,15 +19,22 @@
             Console.WriteLine($"So bi mat la: {secretNumber}");
             int guess;
             bool isCorrect = false;
-            while(!isCorrect)
+            int dem = 0;
+            while (!isCorrect)
             {
                 Console.Write("Nhap so cua ban: ");
-                guess = int.Parse(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out guess))
+                {
+                    Console.WriteLine("Vui lòng nhập số!");
+                    continue;
+                }
                 if (guess < 1 || guess > 100)
                 {
                     Console.WriteLine("So ban nhap khong hop le. Vui long nhap so tu 1 den 100.");
+                    continue;
                 }
-                else if (guess < secretNumber)
+                dem++;
+                if (guess < secretNumber)
                 {
                     Console.WriteLine("So ban nho hon so bi mat.");
                 }
@@ -38,6 +45,7 @@
                 else
                 {
                     Console.WriteLine("Chuc mung! Ban da doan dung so bi mat.");
+                    Console.WriteLine($"So lan da doan: {dem}");
                     isCorrect = true;
                 }
             }

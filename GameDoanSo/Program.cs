@@ -51,15 +51,28 @@
                         isCorrect = true;
                     }
                 }
-                Console.WriteLine("Ban co muon choi lai khong? (Y/N): ");
-                string choice = Console.ReadLine();
-                if (choice.ToUpper() != "Y")
+                string choice;
+                while (true)
+                {
+                    Console.WriteLine("Ban co muon choi lai khong? (Y/N): ");
+                    choice = Console.ReadLine().ToUpper();
+                    if (choice == "Y" || choice == "N")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vui long nhap Y hoac N.");
+                    }
+                }
+                if (choice == "N")
                 {
                     Console.WriteLine("Cam on ban da choi!");
                     break;
                 }
+                Console.Clear();
             }
-            
+           
         }
     }
 }

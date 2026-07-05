@@ -17,9 +17,30 @@
             Random random = new Random();
             int secretNumber = random.Next(1, 101);
             Console.WriteLine($"So bi mat la: {secretNumber}");
-            Console.Write("Nhap so cua ban: ");
-            int guess = int.Parse(Console.ReadLine());
-            Console.WriteLine($"So ban vua nhap la: {guess}");
+            int guess;
+            bool isCorrect = false;
+            while(!isCorrect)
+            {
+                Console.Write("Nhap so cua ban: ");
+                guess = int.Parse(Console.ReadLine());
+                if (guess < 1 || guess > 100)
+                {
+                    Console.WriteLine("So ban nhap khong hop le. Vui long nhap so tu 1 den 100.");
+                }
+                else if (guess < secretNumber)
+                {
+                    Console.WriteLine("So ban nho hon so bi mat.");
+                }
+                else if (guess > secretNumber)
+                {
+                    Console.WriteLine("So ban lon hon so bi mat.");
+                }
+                else
+                {
+                    Console.WriteLine("Chuc mung! Ban da doan dung so bi mat.");
+                    isCorrect = true;
+                }
+            }
             Console.ReadLine(); 
         }
     }

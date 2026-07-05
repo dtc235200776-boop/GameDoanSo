@@ -17,6 +17,9 @@
             Random random = new Random();
             int secretNumber = random.Next(1, 101);
             Console.WriteLine($"So bi mat la: {secretNumber}");
+            Console.Write("Nhap so cua ban: ");
+            int guess = int.Parse(Console.ReadLine());
+            Console.WriteLine($"So ban vua nhap la: {guess}");
             Console.ReadLine(); 
         }
     }
